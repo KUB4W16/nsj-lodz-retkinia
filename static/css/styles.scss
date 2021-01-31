@@ -1,0 +1,516 @@
+@import url("https://fonts.cdnfonts.com/css/orkney");
+
+// $textColor: #3a405a;
+$textColor: #252323;
+// $backgroundColor: #F3EFF5;
+$backgroundColor: #EFE5DC;
+$accentColor: #AD0617;
+
+* {
+    box-sizing: border-box;
+    &:focus
+    &:active {
+        outline: 0;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: rgba($textColor, 0.1);
+    border-left: 1px solid $textColor;
+    &:horizontal {
+        height: 10px;
+        border-left: 0;
+        border-top: 1px solid $textColor;
+    }
+}
+
+input[type="date"] {
+    background-color: $backgroundColor;
+    outline: none;
+    font-family: "Orkney", sans-serif;
+    border-width: 0 0 1px;
+    border-color: $textColor;
+}
+
+input[type="date"]::-webkit-clear-button {
+    font-size: 18px;
+    height: 30px;
+    position: relative;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    height: 28px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    font-size: 15px;
+}
+
+table {
+    width: 100%;
+    border-top: 1px solid $textColor;
+    border-bottom: 1px solid $textColor;
+}
+
+table td + td { border-left: 1px solid $textColor; }
+
+hr {
+    border: 0;
+    height: 1px;
+    background: $textColor;
+}
+
+ol,
+ul {
+    padding-left: 20px;
+}
+
+blockquote {
+    border-left: 1px solid rgba($textColor, 0.3);
+    padding-left: 7.5px; 
+    margin: 5px 2.5px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Orkney', sans-serif;
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+::selection {
+  color: $backgroundColor;
+  background: rgba($accentColor, 0.6);
+}
+
+.grid {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 1fr 50px 50px;
+    width: 100vw;
+    height: 100vh;
+    &__left {
+        grid-column: 1;
+        grid-row: 1/2;
+    }
+    &__right {
+        grid-column: 3;
+        grid-row: 1/3;
+    }
+    &__center {
+        grid-column: 2;
+        grid-row: 1/3;
+    }
+}
+
+.article {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: 1fr 1fr 50px;
+    &__text {
+        grid-column: 1;
+        grid-row: 1/4;
+        padding: 20px;
+        overflow: auto;
+        border-right: 1px solid $textColor;
+        &__date {
+            font-size: 11px;
+            font-weight: 600;
+            color: $textColor;
+        }
+        & article div p > a {
+            color: $textColor;
+            font-size: 13px;
+            font-weight: 400;
+            font-style: italic;
+            text-decoration: none;
+            &:visited,
+            &:focus {
+                color: $accentColor;
+            }
+        }
+    }
+    &__image {
+        grid-column: 2;
+        grid-row: 1;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &__search-bar {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid $textColor;
+        font-size: 12px;
+        font-weight: 600;
+        grid-column: 2;
+        grid-row: 3;
+        &__button {
+            width: 100px;
+            font-family: "Orkney", sans-serif;
+            background-color: $textColor;
+            color: $backgroundColor;
+            border: none;
+        }
+    }
+}
+
+.sidebar {
+    overflow: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &__icon {
+        width: 57px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: flex-start;
+    }
+    &__navigation {
+        user-select: none;
+        align-self: center;
+        display:block;
+        padding-left: 10px;
+        &__item {
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 600;
+            color: $textColor;
+            text-decoration: none;
+            line-height: 22.5px;
+        }
+    }
+    &__container {
+        position: absolute;
+        margin: 5px;
+        bottom: 5px;
+    }
+    &__schedule {
+        font-size: 12px;
+        margin-bottom: 35px;
+        & > p {
+            margin: 7.5px;
+        }
+    }
+    &__links {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 35px;
+        justify-content: space-evenly;
+    }
+    &__niedziela {
+        cursor: pointer;
+        font-size: 12px;
+        & > p {
+            display: none;
+        }
+    }
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+    border-top: 1px solid $textColor;
+    border-right: 1px solid $textColor;
+    &__header {
+        font-size: 12px;
+        margin: 0;
+    }
+    &__count {
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+.media {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 3;
+    border-top: 1px solid $textColor;
+    border-right: 1px solid $textColor;
+    &__svg {
+        user-select: none;
+        margin-left: 10px; 
+        cursor: pointer;
+    }
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 600;
+    grid-column: 3;
+    grid-row: 3;
+    border-top: 1px solid $textColor;
+    border-left: 1px solid $textColor;
+}
+
+.link {
+    color: $textColor;
+    font-style:italic;
+    text-decoration: none;
+}
+
+.menu-trigger {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 1/4;
+    grid-column: 1;
+    border-right: 1px solid $textColor;
+    &__text {
+        align-self: center; 
+        font-size: 12px; 
+        font-weight: 600; 
+        color: $accentColor;
+    }
+    &__logo {
+        width: 45px;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: flex-start;
+    }
+}
+
+.active {
+    border-bottom: 1px solid $textColor;
+}
+
+.sidebar--left {
+    border-right: 1px solid $textColor; 
+}
+.sidebar--right {
+    border-left: 1px solid $textColor; 
+}
+
+.modal {
+    display: none;
+    background-color: $backgroundColor;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50px 50px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    &__close-button {
+        z-index: 3;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 800;
+        position: absolute;
+        color: $accentColor;
+        top: 5px;
+        right: 5px;
+    }
+    &__counter {
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        grid-column: 1;
+        grid-row: 2;
+        border-top: 1px solid $textColor;
+        border-right: 1px solid $textColor;
+    }
+    &__address {
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 600;
+        border-top: 1px solid $textColor;
+        grid-column: 2;
+        grid-row: 3;
+    }
+    &__media {
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        grid-column: 1;
+        grid-row: 3;
+        border-top: 1px solid $textColor;
+        border-right: 1px solid $textColor;
+    }
+    &__sidebar {
+        z-index: 2;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &--left {
+            grid-column: 1;
+            grid-row: 1;
+            border-right: 1px solid $textColor;
+        }
+        &--right {
+            grid-column: 2;
+            grid-row: 1/3;
+        }
+    }
+}
+
+@media screen and (max-height: 580px) {
+    .sidebar__navigation__item {
+        line-height: 20px;
+    }
+    .sidebar__icon {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .article {
+        overflow: auto;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 40% 1fr 50px;
+        &__text {
+            border-right: 0;
+            overflow: visible;
+            border-top: 1px solid $textColor;
+            grid-column: 1/3;
+            grid-row: 2;
+            padding: 20px;
+        }
+        &__image {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        &__search-bar {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid $textColor;
+            font-size: 12px;
+            font-weight: 600;
+            grid-column: 1/3;
+            grid-row: 4;
+            &__button {
+                width: 100px;
+                font-family: "Orkney", sans-serif;
+                background-color: $textColor;
+                color: $backgroundColor;
+                border: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .article {
+        overflow: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 35% 1fr 50px;
+        &__text {
+            border-right: 0;
+            overflow: visible;
+            border-top: 1px solid $textColor;
+            grid-column: 1;
+            grid-row: 2;
+            padding: 20px;
+        }
+        &__image {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        &__search-bar {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid $textColor;
+            font-size: 12px;
+            font-weight: 600;
+            grid-column: 1;
+            grid-row: 4;
+            &__button {
+                width: 100px;
+                font-family: "Orkney", sans-serif;
+                background-color: $textColor;
+                color: $backgroundColor;
+                border: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .grid {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: 1fr 50px 50px;
+        &__center {
+            grid-column: 2;
+            grid-row: 1/4;
+        }
+    }  
+    .article {
+        overflow: auto;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 35% 1fr 50px;
+        &__text {
+            border-right: 0;
+            overflow: visible;
+            border-top: 1px solid $textColor;
+            grid-column: 1/3;
+            grid-row: 2;
+            padding: 20px;
+        }
+        &__image {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        &__search-bar {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid $textColor;
+            font-size: 12px;
+            font-weight: 600;
+            grid-column: 1/3;
+            grid-row: 4;
+            &__button {
+                width: 100px;
+                font-family: "Orkney", sans-serif;
+                background-color: $textColor;
+                color: $backgroundColor;
+                border: none;
+            }
+        }
+    }
+    .sidebar, .address, .media, .counter {
+        display: none;
+    }
+    .menu-trigger {
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: 1fr 50px 50px;
+        &__center {
+            grid-column: 2;
+            grid-row: 1/4;
+        }
+    }  
+    .article {
+        &__image {
+            grid-column: 1/3;
+            grid-row: 1;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Parafia, kościół, Najświętsze Serce Jezusa, NSJ, Parafia Najświętszego Serca Jezusowego, Łódź, retkinia">
+    <meta name="description" content="Witamy na stronie parafii pod wezwanie Najświętszego Serca Jezusowego w Łodzi na Retkini. Tutaj znajdziesz ogłoszenia, aktualności i wiele innych informacji o wydarzeniach i życiu naszej parafii.">
+    <title>Parafia Najświętszego Serca Jezusowego | Łódź Retkinia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="grid">
+        <div class="menu-trigger" id="menuTrigger">
+            <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="menu-trigger__logo">
+            <p class="menu-trigger__text">menu</p>
+        </div>
+        <aside class="grid__left sidebar sidebar--left" id="sidebarLeft">
+            <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="sidebar__icon">
+            <nav class="sidebar__navigation">
+                <a class="sidebar__navigation__item" href="/aktualnosci">Aktualności</a><br>
+                <a class="sidebar__navigation__item" href="/ogloszenia/ostatnie">Ogłoszenia parafialne</a><br>
+                <a class="sidebar__navigation__item" href="/kancelaria">Kancelaria</a><br>
+                <a class="sidebar__navigation__item" href="/cmentarz">Cmentarz</a><br>
+                <a class="sidebar__navigation__item" href="/msze-swiete">Msze święte i nabożeństwa</a><br>
+                <a class="sidebar__navigation__item" href="/sakramenty">Sakramenty (posługa kapłańska)</a><br>
+                <a class="sidebar__navigation__item" href="/wspolnoty-parafialne">Grupy i wspólnoty parafialne</a><br>
+                <a class="sidebar__navigation__item" href="/kaplani">Kapłani i pracownicy parafii</a><br>
+                <a class="sidebar__navigation__item" href="/ministranci">Ministranci</a><br>
+                <a class="sidebar__navigation__item" href="/najswietsze-serce-jezusa">Najświętsze Serce Jezusa</a><br>
+                <a class="sidebar__navigation__item" href="/informacje">O parafii i Retkini</a><br>
+                <a class="sidebar__navigation__item" href="/galeria">Galeria</a><br>
+                <a class="sidebar__navigation__item" href="/polecane-strony">Polecane strony</a><br>
+            </nav>
+        </aside>
+        <div class="counter" id="counter">
+            <span style="margin-left: 10px">
+                <b class="counter__header">Licznik odwiedzin</b>
+                <p class="counter__count">{{ counter }} gości</p>
+            </span>
+        </div>
+        <div class="media" id="media">
+            <span>
+                <svg id="facebook" class="media__svg" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.0615 0H0.938542C0.420042 0 0 0.420042 0 0.938542V16.0622C0 16.58 0.420042 17 0.938542 17H9.08083V10.4167H6.86517V7.85117H9.08083V5.95921C9.08083 3.76338 10.4217 2.56771 12.381 2.56771C13.3195 2.56771 14.1256 2.63783 14.3607 2.669V4.964L13.0022 4.96471C11.9368 4.96471 11.7307 5.47117 11.7307 6.2135V7.85187H14.2715L13.9407 10.4175H11.7307V17H16.0629C16.58 17 17 16.58 17 16.0615V0.938542C17 0.420042 16.58 0 16.0615 0Z" fill="#252323"/>
+                </svg>
+                <svg id="youtube" class="media__svg" width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.9997 0C11.9997 0 4.48793 3.9041e-05 2.60985 0.500039C1.60162 0.780039 0.77104 1.62023 0.49427 2.66023C3.86238e-05 4.56023 0 8.5 0 8.5C0 8.5 3.86238e-05 12.4598 0.49427 14.3398C0.77104 15.3798 1.58185 16.2 2.60985 16.48C4.5077 17 11.9997 17 11.9997 17C11.9997 17 19.5121 17 21.3902 16.5C22.4182 16.22 23.229 15.3997 23.5057 14.3597C24 12.4597 24 8.51992 24 8.51992C24 8.51992 24.0197 4.56023 23.5057 2.66023C23.229 1.62023 22.4182 0.799961 21.3902 0.519961C19.5121 -3.91006e-05 11.9997 0 11.9997 0ZM9.60775 4.86027L15.8547 8.5L9.60775 12.1397V4.86027Z" fill="#252323"/>
+                </svg>
+                <svg id="mail" class="media__svg" width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.5914 9.32252C11.4153 9.45417 11.2076 9.51993 11 9.51993C10.7923 9.51993 10.5847 9.45417 10.4086 9.32252L1.99999 3.03289L6.66664e-05 1.53696L0 15.98C6.66664e-05 16.5433 0.447732 17 0.999996 17L21 16.9999C21.5523 16.9999 22 16.5432 22 15.98V1.5369L19.9999 3.03289L11.5914 9.32252Z" fill="#252323"/>
+                <path d="M11 7.23517L20.6723 6.79624e-05L1.32733 0L11 7.23517Z" fill="#252323"/>
+                </svg>
+            </span>
+        </div>
+        <div class="address" id="address">
+            <span>
+            Parafia Najświętszego Serca Jezusowego<br>
+            94-004 Łódź Retkińska 127
+            </span>
+        </div>
+        <main class="grid__center article">
+                {% if articles[0].image %}
+                    <div class="article__image" style="background-image: url('{{ articles[0].image.url }}')"></div>
+                {% else %} 
+                    <div class="article__image" style="background-image: url('')"></div>
+                {% endif %}
+                
+                <div class="article__text">
+                    {% for article in articles %}
+                        <article>
+                            <h1>{{ article.title }}</h1>
+                            <span class="article__text__date">{{ article.date }}</span>
+                            <div>{{ article.content.html|safe }}</div>
+                            <hr>
+                        </article>
+                    {% endfor %}
+                </div>
+                <div class="article__search-bar">
+                    <p>Znajdź ogłoszenia ze wskazanego dnia: <input type="date" name="date" id="date" placeholder="DD/MM/RRRR"></p>
+                    <button class="article__search-bar__button" id="searchButton">Szukaj</button>
+                </div>
+        </main>
+        <aside class="grid__right sidebar sidebar--right" id="sidebarRight">
+            <div class="sidebar__container">
+                <div class="sidebar__links">
+                    <a href="/" target="_blank" rel="noreferrer">
+                        <img height="73px" height="58.45px" src="{{ url_for('static', filename='assets/caritas.webp') }}" alt="Caritas"/>
+                    </a>
+                    <a href="https://www.archidiecezja.lodz.pl/" target="_blank" rel="noreferrer"`>
+                        <img height="73px" width="73px" src="{{ url_for('static', filename='assets/archidiecezja-lodz.webp') }}" alt="Archidiecezja Łódzka"/>
+                    </a>
+                </div>
+                <div class="sidebar__schedule">
+                <b>Msze święte<br>Niedziele i Święta</b>  
+                <p>kościół górny: <br>
+                8.30, 10.00 (suma), 11.30 (dla uczniów), 13.00, 18.30</p>
+                <p>kościół dolny: <br>
+                7.00 (prymaria), 11.45 (dla małych dzieci)</p>
+                <b>Dni powszednie</b>
+                <p>kościół górny:
+                07:00, 07:30, 08:00,
+                18:30 (z homilią)</p>
+                <a class="link" href="/msze-swiete">czytaj więcej...</a>
+            </div>
+            <div class="sidebar__niedziela" id="niedziela">
+                <!-- <script type="text/javascript" src="https://widget.niedziela.pl/liturgia_skrot_out.js.php"></script> -->
+            </div>
+          </div>
+        </aside>
+        <div class="modal" id="modal">
+            <span class="modal__close-button" id="closeButton">x</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiped-events@1.1.4/src/swiped-events.min.js" defer></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
