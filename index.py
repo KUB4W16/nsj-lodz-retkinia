@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import json, datetime, os, requests, re
 import difflib, nltk
 
+from dotenv import load_dotenv
+load_dotenv('.env')
+
 app = Flask(__name__);
 app.static_folder = 'static'
 
