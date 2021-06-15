@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parafia Najświętszego Serca Jezusowego | Łódź Retkinia</title>
+    <meta name="title" content="Parafia Najświętszego Serca Jezusowego | Łódź Retkinia">
+    <meta name="keywords" content="Parafia, kościół, Najświętsze Serce Jezusa, NSJ, Parafia Najświętszego Serca Jezusowego, Łódź, retkinia">
+    <meta name="description" content="Witamy na stronie parafii pod wezwaniem Najświętszego Serca Jezusowego w Łodzi na Retkinii. Tutaj znajdziesz ogłoszenia, aktualności i wiele informacji o wydarzeniach z życia naszej parafii.">
+    <link rel="icon" href="https://media.graphcms.com/WYAMvUSQyu7EivD77sQx">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:title" content="Parafia Najświętszego Serca Jezusowego | Łódź Retkinia">
+    <meta property="og:description" content="Witamy na stronie parafii pod wezwaniem Najświętszego Serca Jezusowego w Łodzi na Retkinii. Tutaj znajdziesz ogłoszenia, aktualności i wiele informacji o wydarzeniach z życia naszej parafii.">
+    {% if articles[0].image.url %}
+        <meta property="og:image" content="{{ articles[0].image.url }}">  
+        <meta property="twitter:image" content="{{ articles[0].image.url }}">
+    {% else %}
+        <meta property="og:image" content="https://media.graphcms.com/E5ZWDMYgQFCeXqTblwPv">
+        <meta property="twitter:image" content="https://media.graphcms.com/E5ZWDMYgQFCeXqTblwPv">
+    {% endif %}
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url }}">
+    <meta property="twitter:title" content="Parafia Najświętszego Serca Jezusowego | Łódź Retkinia">
+    <meta property="twitter:description" content="Witamy na stronie parafii pod wezwaniem Najświętszego Serca Jezusowego w Łodzi na Retkinii. Tutaj znajdziesz ogłoszenia, aktualności i wiele informacji o wydarzeniach z życia naszej parafii.">
+
+    <meta name="google-site-verification" content="vEtFDszcgecIJQUrlv5P0QspIIQctZmrGsmCRUa2q2c" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="{{ url_for('static', filename='dist/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/animations.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js" integrity="sha512-uzOpZ74myvXTYZ+mXUsPhDF+/iL/n32GDxdryI2SJronkEyKC8FBFRLiBQ7l7U/PTYebDbgTtbqTa6/vGtU23A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <noscript>
+        <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="sidebar__icon">
+        <div>Twoja przeglądarka nie wspiera, lub ma wyłączone wsparcie dla JavaScript'u, bez niego strona nie będzie działać poprawnie.</div>
+    </noscript>
+    <div class="banner"></div>
+    <div class="search-banner" id="searchModal">
+        <div class="search-banner__inner">
+            <div class="search-banner__inner__header">Wyszukaj Artykuł</div>
+            <div class="search-banner__inner__short-description">Podaj dane, dzięki którym będziemy mogli znaleźć dany artykuł. <i>(Aby zamknąć to okno, kliknij obok niego, na przyciemnionym polu.)</i></div>
+            <form action="" class="search-banner__inner__form">
+                <input type="date" placeholder="" name="data" id="searchBannerDateInput" class="search-banner__inner__form__date-input">
+                <input type="text" placeholder="Wpisz poszukiwaną frazę." name="fraza" id="searchBannerPhraseInput" class="search-banner__inner__form__phrase-input">
+                <select name="typ" id="searchBannerArticleTypeSelect" class="search-banner__inner__form__limit-input">
+                    <option value="aktualnosci">Aktualności</option>
+                    <option value="ogloszenia">Ogłoszenia parafialne</option>
+                    <option value="inne">Inne</option>
+                </select>
+                <input type="number" placeholder="Podaj limit ilości wyszukiwanych artykułów. Domyślnie 10." name="limit" id="searchBannerLimitInput" class="search-banner__inner__form__article-type-select">
+            </form>
+            <button class="search-banner__inner__search-button">Szukaj</button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="menu-trigger" id="menuTrigger">
+            <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="menu-trigger__logo">
+            <span class="menu-trigger__text">menu</span>
+        </div>
+        <aside class="grid__left sidebar sidebar--left" id="sidebarLeft">
+            <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="sidebar__icon">
+            <nav class="sidebar__navigation">
+                <a class="sidebar__navigation__item" href="/aktualnosci">Aktualności</a><br>
+                <a class="sidebar__navigation__item" href="/ogloszenia/ostatnie">Ogłoszenia parafialne</a><br>
+                <a class="sidebar__navigation__item" href="/kancelaria">Kancelaria</a><br>
+                <a class="sidebar__navigation__item" href="/cmentarz">Cmentarz</a><br>
+                <a class="sidebar__navigation__item" href="/msze-swiete">Msze święte i nabożeństwa</a><br>
+                <a class="sidebar__navigation__item" href="/sakramenty">Sakramenty (posługa kapłańska)</a><br>
+                <a class="sidebar__navigation__item" href="/wspolnoty-parafialne">Grupy i wspólnoty parafialne</a><br>
+                <a class="sidebar__navigation__item" href="/kaplani">Kapłani i pracownicy parafii</a><br>
+                <a class="sidebar__navigation__item" href="/ministranci">Ministranci</a><br>
+                <a class="sidebar__navigation__item" href="/najswietsze-serce-jezusa">Najświętsze Serce Jezusa</a><br>
+                <a class="sidebar__navigation__item" href="/informacje">O parafii i Retkini</a><br>
+                <a class="sidebar__navigation__item" href="/galeria">Galeria</a><br>
+                <a class="sidebar__navigation__item" href="/polecane-strony">Polecane strony</a><br>
+            </nav>
+        </aside>
+        <div class="counter" id="counter">
+            <span class="inner-ellipse">
+                <b class="counter__header">Licznik odwiedzin</b>
+                <p class="counter__count">{{ counter }} gości</p>
+            </span>
+        </div>
+        <div class="media" id="media">
+            <span class="inner-ellipse">
+                <div>
+                    <svg id="facebook" class="media__svg" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.0615 0H0.938542C0.420042 0 0 0.420042 0 0.938542V16.0622C0 16.58 0.420042 17 0.938542 17H9.08083V10.4167H6.86517V7.85117H9.08083V5.95921C9.08083 3.76338 10.4217 2.56771 12.381 2.56771C13.3195 2.56771 14.1256 2.63783 14.3607 2.669V4.964L13.0022 4.96471C11.9368 4.96471 11.7307 5.47117 11.7307 6.2135V7.85187H14.2715L13.9407 10.4175H11.7307V17H16.0629C16.58 17 17 16.58 17 16.0615V0.938542C17 0.420042 16.58 0 16.0615 0Z" fill="#252323"/>
+                    </svg>
+                    <svg id="youtube" class="media__svg" width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9997 0C11.9997 0 4.48793 3.9041e-05 2.60985 0.500039C1.60162 0.780039 0.77104 1.62023 0.49427 2.66023C3.86238e-05 4.56023 0 8.5 0 8.5C0 8.5 3.86238e-05 12.4598 0.49427 14.3398C0.77104 15.3798 1.58185 16.2 2.60985 16.48C4.5077 17 11.9997 17 11.9997 17C11.9997 17 19.5121 17 21.3902 16.5C22.4182 16.22 23.229 15.3997 23.5057 14.3597C24 12.4597 24 8.51992 24 8.51992C24 8.51992 24.0197 4.56023 23.5057 2.66023C23.229 1.62023 22.4182 0.799961 21.3902 0.519961C19.5121 -3.91006e-05 11.9997 0 11.9997 0ZM9.60775 4.86027L15.8547 8.5L9.60775 12.1397V4.86027Z" fill="#252323"/>
+                    </svg>
+                    <svg id="mail" class="media__svg" width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5914 9.32252C11.4153 9.45417 11.2076 9.51993 11 9.51993C10.7923 9.51993 10.5847 9.45417 10.4086 9.32252L1.99999 3.03289L6.66664e-05 1.53696L0 15.98C6.66664e-05 16.5433 0.447732 17 0.999996 17L21 16.9999C21.5523 16.9999 22 16.5432 22 15.98V1.5369L19.9999 3.03289L11.5914 9.32252Z" fill="#252323"/>
+                    <path d="M11 7.23517L20.6723 6.79624e-05L1.32733 0L11 7.23517Z" fill="#252323"/>
+                    </svg>
+                </div>
+            </span>
+        </div>
+        <div class="address" id="address">
+            <span>
+            Parafia Najświętszego Serca Jezusowego<br>
+            94-004 Łódź Retkińska 127
+            </span>
+        </div>
+        <main class="grid__center article">
+                <div class="article__image"></div>
+                <div class="article__text">
+                    {% for article in articles %}
+                        <article data-image="{{ article.image.url|default('https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB') }}" id="article">
+                            {% if article.title %}
+                            <h1 class="article__text__header">{{ article.title }}</h1>
+                            {%else%}{%endif%}
+                            <div class="article__text__date" id="articleDate">{{ article.date }}</div>
+                            {% if article.content.html %}
+                            <div class="article__text__content-wrapper">{{ article.content.html|safe }}</div>
+                            {% else %}
+                            <div class="article__text__content-wrapper">{{ article.content|safe }}</div>
+                            {% endif %}
+                            {% if printable %}
+                            <div class="article__text__print-button" id="printButton">Wydrukuj artykuł...</div>
+                            {% else %}{% endif %}
+                            <hr>
+                        </article>
+                    {% endfor %}
+                </div>
+                <div class="article__search-bar">
+                    <p>Wyszukaj ogłoszenia klikając na przycisk obok by wprowadzić dane.</p>
+                    <button class="article__search-bar__button" id="searchButton">Szukaj</button>
+                </div>
+        </main>
+        <aside class="grid__right sidebar sidebar--right" id="sidebarRight">
+            <div class="sidebar__container">
+                <div class="sidebar__links">
+                    <a href="/" target="_blank" rel="noreferrer">
+                        <img class="sidebar__links__img" width="58.45" height="73" src="https://media.graphcms.com/5hAI8vxwQ76x1ORFL9x0" alt="Caritas"/>
+                    </a>
+                    <a href="https://www.archidiecezja.lodz.pl/" target="_blank" rel="noreferrer"`>
+                        <img class="sidebar__links__img" width="73" height="73" src="https://media.graphcms.com/6CiYidlSpempS9ujWQqX" alt="Archidiecezja Łódzka"/>
+                    </a>
+                </div>
+                <div class="sidebar__schedule">
+                <b>Msze święte<br>Niedziele i Święta</b>  
+                <p>kościół górny: <br>
+                8.30, 10.00 (suma), 11.30 (dla uczniów), 13.00, 18.30</p>
+                <p>kościół dolny: <br>
+                7.00 (prymaria), 11.45 (dla małych dzieci)</p>
+                <b>Dni powszednie</b>
+                <p>kościół górny:
+                07:00, 07:30, 08:00,
+                18:30 (z homilią)</p>
+                <a class="link" href="/msze-swiete">czytaj więcej...</a>
+            </div>
+            <hr>
+            <div class="sidebar__liturgia">
+                <script type="text/javascript" src="https://widget.niedziela.pl/liturgia_skrot_out.js.php"></script>
+            </div>
+          </div>
+        </aside>
+        <div class="modal" id="modal">
+            <div class="modal__close-button" id="closeButton"><span>x</span></div>
+            <nav class="modal__side-menu">
+                <div class="modal__side-menu__item" id="address">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg" width="22" height="22" viewBox="0, 0, 400,400">
+                        <g id="svg">
+                            <path id="path0" d="M192.478 16.447 C 174.759 18.871,166.484 21.168,155.310 26.765 C 109.131 49.896,89.276 100.161,105.933 151.770 C 119.482 193.748,167.177 269.218,185.643 277.898 C 203.529 286.305,217.450 280.619,234.337 258.010 C 307.239 160.401,318.789 95.411,271.883 46.753 C 251.774 25.893,217.908 12.968,192.478 16.447 M214.593 84.822 C 236.741 95.186,241.949 123.458,224.943 141.003 C 197.325 169.495,151.254 136.671,168.729 100.952 C 176.935 84.180,197.652 76.894,214.593 84.822 M94.455 250.480 C 79.345 254.221,75.941 258.854,60.989 296.020 L 49.241 325.221 49.178 332.743 C 49.043 348.858,58.879 362.075,73.858 365.907 C 81.826 367.946,318.174 367.946,326.142 365.907 C 341.121 362.075,350.957 348.858,350.822 332.743 L 350.759 325.221 339.011 296.020 C 321.623 252.799,318.735 250.000,291.530 250.000 C 272.738 250.000,267.426 253.281,266.547 265.428 C 265.681 277.402,272.399 283.239,287.800 283.893 L 297.282 284.296 305.360 304.599 C 314.123 326.625,314.332 328.008,309.416 331.451 C 306.633 333.401,93.367 333.401,90.584 331.451 C 85.668 328.008,85.877 326.625,94.640 304.599 L 102.718 284.296 112.200 283.893 C 118.434 283.628,122.591 283.012,124.336 282.095 C 136.021 275.952,136.821 259.683,125.811 252.133 C 122.368 249.772,101.712 248.684,94.455 250.480 " stroke="none" fill="#252323" fill-rule="evenodd"/>
+                        </g>
+                    </svg>
+                    <span>Adres</span>
+                </div>
+                <div class="modal__side-menu__item" id="mail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                            <path d="M 4 4 C 2.976 4 2.1404375 4.772625 2.0234375 5.765625 L 12 12 L 21.976562 5.765625 C 21.859563 4.772625 21.024 4 20 4 L 4 4 z M 2 7.7519531 L 2 18 C 2 19.105 2.895 20 4 20 L 16.171875 20 L 13.585938 17.414062 C 13.210938 17.039062 13 16.53 13 16 L 13 13.375 L 12.529297 13.669922 C 12.205297 13.872922 11.794703 13.872922 11.470703 13.669922 L 2 7.7519531 z M 22 7.7519531 L 15.201172 12 L 17 12 C 17.53 12 18.039062 12.210937 18.414062 12.585938 L 22 16.171875 L 22 7.7519531 z M 15 14 L 15 16 L 20.146484 21.146484 L 22.146484 19.146484 L 17 14 L 15 14 z M 22.853516 19.853516 L 20.853516 21.853516 L 21.853516 22.853516 C 22.048516 23.048516 22.364547 23.048516 22.560547 22.853516 L 23.853516 21.560547 C 24.048516 21.365547 24.048516 21.048516 23.853516 20.853516 L 22.853516 19.853516 z" fill="#252323"></path>
+                        </svg>
+                    <span>e-mail</span>
+                </div>
+                <div class="modal__side-menu__item" id="niedziela">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg" width="22" height=" 19.4" viewBox="0, 0, 400,352.5">
+                        <g id="svg">
+                            <path id="path0" d="M153.412 19.882 C 132.716 24.818,120.000 43.717,120.000 69.539 L 120.000 85.000 85.163 85.000 C 23.598 85.000,27.521 76.351,27.509 212.114 C 27.500 313.515,27.708 318.270,32.435 324.909 C 41.581 337.754,40.261 337.662,205.607 336.932 L 359.906 336.250 368.078 328.079 L 376.250 319.909 376.978 214.925 C 377.928 78.052,381.773 87.017,321.250 85.000 L 283.750 83.750 284.283 73.750 C 285.649 48.153,271.768 26.003,250.693 20.150 C 240.079 17.203,165.506 16.997,153.412 19.882 M248.864 53.636 C 255.432 60.205,256.964 71.659,252.412 80.164 C 249.246 86.080,158.751 87.751,153.000 82.000 C 148.037 77.037,149.328 59.164,155.097 52.971 C 163.423 44.035,239.804 44.577,248.864 53.636 M182.151 157.618 C 208.842 161.949,250.059 178.454,270.827 193.128 C 279.874 199.520,284.032 197.471,306.500 175.548 C 321.620 160.796,323.530 159.667,329.079 162.195 C 341.315 167.770,339.648 172.365,318.133 192.378 L 297.845 211.250 317.797 229.681 C 338.758 249.044,340.316 252.884,329.797 259.244 C 323.425 263.097,323.113 262.922,305.027 245.366 C 283.701 224.665,279.943 222.934,270.623 229.517 C 205.997 275.169,120.121 278.300,75.692 236.623 C 55.534 217.715,53.637 212.631,62.284 200.694 C 87.584 165.769,132.627 149.582,182.151 157.618 M130.000 178.413 C 88.364 190.607,72.947 210.230,93.005 225.501 C 130.581 254.111,183.371 253.664,238.466 224.269 C 263.391 210.971,263.402 211.057,235.000 196.973 C 197.229 178.244,155.665 170.897,130.000 178.413 " stroke="none" fill="#297fb8" fill-rule="evenodd"/>
+                        </g>
+                    </svg>
+                    <span>Liturgia Dnia</span>
+                </div>
+                <div class="modal__side-menu__item" id="facebook">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.0615 0H0.938542C0.420042 0 0 0.420042 0 0.938542V16.0622C0 16.58 0.420042 17 0.938542 17H9.08083V10.4167H6.86517V7.85117H9.08083V5.95921C9.08083 3.76338 10.4217 2.56771 12.381 2.56771C13.3195 2.56771 14.1256 2.63783 14.3607 2.669V4.964L13.0022 4.96471C11.9368 4.96471 11.7307 5.47117 11.7307 6.2135V7.85187H14.2715L13.9407 10.4175H11.7307V17H16.0629C16.58 17 17 16.58 17 16.0615V0.938542C17 0.420042 16.58 0 16.0615 0Z" fill="#3b5998"/>
+                    </svg>
+                    <span>Facebook</span>
+                </div>
+                <div class="modal__side-menu__item" id="youtube">
+                    <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.9997 0C11.9997 0 4.48793 3.9041e-05 2.60985 0.500039C1.60162 0.780039 0.77104 1.62023 0.49427 2.66023C3.86238e-05 4.56023 0 8.5 0 8.5C0 8.5 3.86238e-05 12.4598 0.49427 14.3398C0.77104 15.3798 1.58185 16.2 2.60985 16.48C4.5077 17 11.9997 17 11.9997 17C11.9997 17 19.5121 17 21.3902 16.5C22.4182 16.22 23.229 15.3997 23.5057 14.3597C24 12.4597 24 8.51992 24 8.51992C24 8.51992 24.0197 4.56023 23.5057 2.66023C23.229 1.62023 22.4182 0.799961 21.3902 0.519961C19.5121 -3.91006e-05 11.9997 0 11.9997 0ZM9.60775 4.86027L15.8547 8.5L9.60775 12.1397V4.86027Z" fill="#c4302b"/>
+                    </svg>
+                    <span>YouTube</span>
+                </div>
+                <div class="modal__side-menu__item" id="archidiecezja">
+                    <img class="sidebar__links__img" width="73" height="73" src="https://media.graphcms.com/6CiYidlSpempS9ujWQqX" alt="Archidiecezja Łódzka"/>
+                    <span>Archidiecezja Łódzka</span>
+                </div>
+                <div class="modal__side-menu__item" id="caritas">
+                    <img class="sidebar__links__img" width="58.45" height="73" src="https://media.graphcms.com/5hAI8vxwQ76x1ORFL9x0" alt="Caritas"/>
+                    <span>Caritas</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

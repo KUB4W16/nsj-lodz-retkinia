@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="Parafia, kościół, Najświętsze Serce Jezusa, NSJ, Parafia Najświętszego Serca Jezusowego, Łódź, retkinia">
+    <meta name="description" content="Witamy na stronie parafii pod wezwanie Najświętszego Serca Jezusowego w Łodzi na Retkini. Tutaj znajdziesz ogłoszenia, aktualności i wiele innych informacji o wydarzeniach i życiu naszej parafii.">
+    <link rel="icon" href="https://media.graphcms.com/WYAMvUSQyu7EivD77sQx">
+    <title>Parafia Najświętszego Serca Jezusowego | Łódź Retkinia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/print.css') }}">
+</head>
+<body>
+    {% for article in articles.articles %}
+        <header class="header">
+            <div class="header__container">
+                <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="header__icon">
+                <h1 class="header__title">{{ article.title }}</h1>
+            </div>
+            {% if article.image %}
+                <img class="header__image" src="{{ article.image.url }}"></img>
+            {% else %} 
+                <img class="header__image" src="https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB"></img>
+            {% endif %}
+        </header>
+        <article class="text">
+            {% if article.articleType is defined %}
+                <div>{{ article.content.html|safe }}</div>
+            {% else %}
+                <div>{{ article.content|safe }}</div>
+            {% endif %}
+            <hr>
+        </article>
+    {% endfor %}
+    <script>
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var articleType = url.searchParams.get("artykul");
+        var images = document.querySelectorAll("img:not(.header__image):not(.header__icon)");
+        if (articleType == 'kaplani') {
+            images.forEach((img) => {
+                img.style.width = "150px"; img.style.height = "auto";
+            })
+        } else if (articleType == 'galeria') {
+            images.forEach((img) => {
+                img.style.width = "200px"; img.style.height = "auto";
+            })
+        }
+        window.onafterprint = window.close;
+        window.print();
+    </script>
+</body>
+</html>
