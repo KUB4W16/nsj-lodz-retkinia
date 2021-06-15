@@ -2,7 +2,7 @@ from flask import Flask, render_template, Response, request
 from graphqlclient import GraphQLClient
 from bs4 import BeautifulSoup
 import json, datetime, os, requests, re
-import difflib, nltk
+import difflib
 
 app = Flask(__name__);
 app.static_folder = 'static'
@@ -246,8 +246,8 @@ def search():
                     script.decompose()
                 texts_list = list(_soup.stripped_strings)
 
-                tokenized_text = nltk.word_tokenize(' '.join(texts_list))
-                tokenized_phrase = nltk.word_tokenize(phrase)
+                tokenized_text = ' '.join(texts_list).split(' ')
+                tokenized_phrase = phrase.split(' ')
                 diff = []
                 for token in tokenized_phrase:
                     diff += difflib.get_close_matches(token, tokenized_text, cutoff=0.6)
