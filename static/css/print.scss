@@ -1,11 +1,9 @@
-// @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
-@import url('http://fonts.cdnfonts.com/css/hk-groteks');
+@import url('https://fonts.cdnfonts.com/css/hk-groteks');
 
-$font: "HK Grotesk", sans-serif;
-// $font: "Manrope", sans-serif;
+$font: 'HK Grotesk', sans-serif;
 $textColor: #000000;
-$backgroundColor: #FFFFFF;
-$accentColor: #AD0617;
+$backgroundColor: #ffffff;
+$accentColor: #ad0617;
 
 * {
     box-sizing: border-box;
@@ -67,13 +65,14 @@ body {
         height: auto;
         border: 1px solid $textColor;
     }
-    p, span {
+    p,
+    span {
         font-family: $font !important;
         font-size: 16px;
     }
     a {
         font-family: $font !important;
-        color: $accentColor; 
+        color: $accentColor;
         font-size: 16px;
         font-weight: 400;
         font-style: italic;
@@ -87,47 +86,53 @@ body {
         width: 100%;
         border-top: 1px solid $textColor;
         border-bottom: 1px solid $textColor;
-    
-    table td + td {
-        border-left: 1px solid $textColor;
-        font-family: $font !important; 
+
+        table td + td {
+            border-left: 1px solid $textColor;
+            font-family: $font !important;
+        }
+
+        ol,
+        ul {
+            font-family: $font !important;
+            margin: 15px 5px;
+            padding-left: 20px;
+        }
+        blockquote {
+            font-family: $font !important;
+            border-left: 1px solid rgba($textColor, 0.3);
+            padding-left: 7.5px;
+            margin: 5px 2.5px;
+        }
+        h1,
+        h1 * {
+            font-size: 26px;
+            font-weight: 900 !important;
+        }
+        h2,
+        h2 * {
+            font-size: 24px;
+            font-weight: 900 !important;
+        }
+        h3,
+        h3 * {
+            font-size: 22px;
+            font-weight: 900 !important;
+        }
+        h4,
+        h4 * {
+            font-size: 20px;
+            font-weight: 900 !important;
+        }
+        h5,
+        h5 * {
+            font-size: 18px;
+            font-weight: 900 !important;
+        }
+        h6,
+        h6 * {
+            font-size: 16px;
+            font-weight: 900 !important;
+        }
     }
-    
-    ol,
-    ul {
-        font-family: $font !important;
-        margin: 15px 5px;
-        padding-left: 20px;
-    }
-    blockquote {
-        font-family: $font !important;
-        border-left: 1px solid rgba($textColor, 0.3);
-        padding-left: 7.5px; 
-        margin: 5px 2.5px;
-    }
-    h1, h1 * {
-        font-size: 26px;
-        font-weight: 900 !important;
-    }
-    h2, h2 *{
-        font-size: 24px;
-        font-weight: 900 !important;
-    }
-    h3, h3 * {
-        font-size: 22px;
-        font-weight: 900 !important;
-    }
-    h4, h4 * {
-        font-size: 20px;
-        font-weight: 900 !important;
-    }
-    h5, h5 * {
-        font-size: 18px;
-        font-weight: 900 !important;
-    }
-    h6, h6 * {
-        font-size: 16px;
-        font-weight: 900 !important;
-    }
-    } 
 }

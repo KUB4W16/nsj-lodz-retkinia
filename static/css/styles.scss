@@ -1,15 +1,14 @@
 @import url('https://fonts.cdnfonts.com/css/hk-groteks');
 
-$font: "HK Grotesk", sans-serif;
+$font: 'HK Grotesk', sans-serif;
 $textColor: #1d1d1d;
-$backgroundColor: #FFFFFF;
-$accentColor: #AD0617;
+$backgroundColor: #ffffff;
+$accentColor: #ad0617;
 
 * {
     font-family: $font !important;
     box-sizing: border-box;
-    &:focus
-    &:active {
+    &:focus &:active {
         outline: 0;
     }
 }
@@ -17,11 +16,11 @@ $accentColor: #AD0617;
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
     background-color: rgba($textColor, 0.1);
     border-left: 1px solid $textColor;
@@ -46,8 +45,8 @@ hr {
 }
 
 ::selection {
-  color: $backgroundColor;
-  background: rgba($accentColor, 0.6);
+    color: $backgroundColor;
+    background: rgba($accentColor, 0.6);
 }
 
 .grid {
@@ -105,7 +104,11 @@ hr {
             font-weight: 600;
         }
         &__content-wrapper {
-            p, span, b, i, u {
+            p,
+            span,
+            b,
+            i,
+            u {
                 // color: $textColor;
                 font-size: 16px !important;
                 line-height: 150%;
@@ -116,7 +119,7 @@ hr {
                 border: 1px solid $textColor;
             }
             a {
-                color: $accentColor; 
+                color: $accentColor;
                 font-size: 13px;
                 font-weight: 400;
                 font-style: italic;
@@ -142,30 +145,36 @@ hr {
             }
             blockquote {
                 border-left: 1px solid rgba($textColor, 0.3);
-                padding-left: 7.5px; 
+                padding-left: 7.5px;
                 margin: 5px 2.5px;
             }
-            h1, h1 * {
+            h1,
+            h1 * {
                 font-size: 26px;
                 font-weight: 600;
             }
-            h2, h2 *{
+            h2,
+            h2 * {
                 font-size: 24px;
                 font-weight: 600;
             }
-            h3, h3 * {
+            h3,
+            h3 * {
                 font-size: 22px;
                 font-weight: 600;
             }
-            h4, h4 * {
+            h4,
+            h4 * {
                 font-size: 20px;
                 font-weight: 600;
             }
-            h5, h5 * {
+            h5,
+            h5 * {
                 font-size: 18px;
                 font-weight: 600;
             }
-            h6, h6 * {
+            h6,
+            h6 * {
                 font-size: 16px;
                 font-weight: 600;
             }
@@ -196,7 +205,7 @@ hr {
             &__img {
                 position: absolute;
                 height: 85%;
-                width: calc(85%*23/30);
+                width: calc(85% * 23 / 30);
                 overflow: visible;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -210,7 +219,7 @@ hr {
             &__shadow {
                 content: '';
                 height: 85%;
-                width: calc(85%*23/30);
+                width: calc(85% * 23 / 30);
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center center;
@@ -236,7 +245,7 @@ hr {
         grid-column: 2;
         grid-row: 3;
         & p {
-                align-self: center;
+            align-self: center;
         }
         &__label {
             font-size: 12px !important;
@@ -283,10 +292,10 @@ hr {
     &__navigation {
         user-select: none;
         align-self: center;
-        display:block;
+        display: block;
         padding-left: 10px;
         &__item {
-        //  font-size: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
+            //  font-size: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
             font-size: 13px;
             font-style: normal;
             font-weight: 600;
@@ -363,7 +372,7 @@ hr {
     border-right: 1px solid $textColor;
     &__svg {
         user-select: none;
-        margin-left: 10px; 
+        margin-left: 10px;
         cursor: pointer;
     }
 }
@@ -382,7 +391,7 @@ hr {
 
 .link {
     color: $textColor;
-    font-style:italic;
+    font-style: italic;
     text-decoration: none;
 }
 
@@ -409,10 +418,10 @@ hr {
 }
 
 .sidebar--left {
-    border-right: 1px solid $textColor; 
+    border-right: 1px solid $textColor;
 }
 .sidebar--right {
-    border-left: 1px solid $textColor; 
+    border-left: 1px solid $textColor;
 }
 
 .modal {
@@ -639,7 +648,7 @@ hr {
             }
             &__limit-input {
                 grid-column: 2;
-                grid-row: 3;              
+                grid-row: 3;
             }
             &__article-type-select {
                 grid-column: 2;
@@ -773,7 +782,7 @@ noscript {
             grid-column: 2;
             grid-row: 1/4;
         }
-    }  
+    }
     .article {
         overflow: auto;
         grid-template-columns: 1fr 1.5fr;
@@ -807,7 +816,10 @@ noscript {
             }
         }
     }
-    .sidebar, .address, .media, .counter {
+    .sidebar,
+    .address,
+    .media,
+    .counter {
         display: none;
     }
     .menu-trigger {
@@ -830,7 +842,7 @@ noscript {
             grid-column: 2;
             grid-row: 1/4;
         }
-    }  
+    }
     .article {
         &__image {
             grid-column: 1/3;
