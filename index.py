@@ -259,22 +259,22 @@ def search():
     else:
         return render_template('index.html', articles=new_res[article_type], counter=COUNTER, url=request.url, printable=True)
 
-@app.errorhandler(Exception)
-def page_not_found(e):
-    articles = [
-      {
-        "title": "Coś poszło nie tak.",
-        "content": {
-          "html":
-            "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a></p>",
-        },
-        "date": datetime.datetime.now().strftime('%d-%m-%Y'),
-        "image": {
-          "url": "https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB",
-        },
-      },
-    ];
-    return render_template('index.html', articles=articles, counter=COUNTER, url=request.url, printable=False), 404
+# @app.errorhandler(Exception)
+# def page_not_found(e):
+#     articles = [
+#       {
+#         "title": "Coś poszło nie tak.",
+#         "content": {
+#           "html":
+#             "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a></p>",
+#         },
+#         "date": datetime.datetime.now().strftime('%d-%m-%Y'),
+#         "image": {
+#           "url": "https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB",
+#         },
+#       },
+#     ];
+#     return render_template('index.html', articles=articles, counter=COUNTER, url=request.url, printable=False), 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
