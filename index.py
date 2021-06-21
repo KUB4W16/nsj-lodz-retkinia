@@ -46,15 +46,6 @@ basic_query = '''
 }
 '''
 
-def _ratio(lst1, lst2):
-    c = sum(el in lst1 for el in lst2)
-    if (len(lst1) == 0 or len(lst2) == 0):
-        retval = 0.0
-    else:
-        retval = 0.5 * (c/len(lst1) + c/len(lst2))
-    
-    return retval
-
 def get_album(_id):
     r = requests.get("https://photos.app.goo.gl/{}".format(_id))
     links_regex = r'\[\"(https:\/\/lh3\.googleusercontent\.com\/[a-zA-Z0-9\-_]*)\"'
@@ -237,6 +228,8 @@ def search():
         article_type: []
     }
     if phrase is not None:
+        tokenized_phrase = phrase.lower().split(' ')
+        stopwords = json.loads(open('stopwords-pl.json', encoding='utf-8').read())
         for article in res[article_type]:
             if article_type == "announcements":
                 _soup = BeautifulSoup(article['content'])
@@ -249,13 +242,21 @@ def search():
                     script.decompose()
                 texts_list = list(_soup.stripped_strings)
 
-                tokenized_text = ' '.join(texts_list).split(' ')
-                tokenized_phrase = phrase.split(' ')
-                diff = []
-                for token in tokenized_phrase:
-                    diff += difflib.get_close_matches(token, tokenized_text, cutoff=0.6)
+                tokenized_text = list(filter(None, [re.sub(r"[^a-zA-Z0-9 ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]", "", p.lower()) for p in " ".join(texts_list).split(" ") if p.lower() not in stopwords]))
+                tokenized_phrases_from_text = []
+
+                for i in range(tokenized_text.__len__()):
+                    # print(' '.join(tokenized_text[i:i+tokenized_phrase.__len__()]))
+                    tokenized_phrases_from_text += [' '.join(tokenized_text[i:i+tokenized_phrase.__len__()])]
+
+                _cutoff = 0.8
+                diff = difflib.get_close_matches(phrase, tokenized_phrases_from_text, cutoff=_cutoff)
+                print(tokenized_phrases_from_text)
+                print(diff)
                 if diff != []:
                     new_res[article_type].append(article)
+                # elif diff == []:
+                #     new_res[article_type].append('');
     if new_res[article_type] == []:
         return render_template('index.html', articles=res[article_type], counter=COUNTER, url=request.url, printable=True)
     else:
