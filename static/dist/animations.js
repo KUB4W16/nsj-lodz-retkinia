@@ -4,10 +4,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-window.addEventListener("load", function () {
-  var el = document.querySelector(".banner");
-  var image = document.querySelector(".article__image");
-  var articles = document.querySelectorAll("#article");
+window.addEventListener('load', function () {
+  var el = document.querySelector('.banner');
+  var image = document.querySelector('.article__image');
+  var articles = document.querySelectorAll('#article');
   gsap.registerPlugin(ScrollTrigger);
 
   function sleep(ms) {
@@ -29,24 +29,24 @@ window.addEventListener("load", function () {
     for (var i = 0; i < image.children.length; i++) {
       gsap.to(image.children[i], {
         scrollTrigger: {
-          toggleActions: "restart none none reverse",
+          toggleActions: 'restart none none reverse',
           toggleClass: {
             targets: image.children[i],
-            className: "active-image"
+            className: 'active-image'
           },
           trigger: articles[i],
-          scroller: ".article__text",
-          start: "top 10%",
-          end: "bottom 7.3%"
+          scroller: '.article__text',
+          start: 'top 10%',
+          end: 'bottom 7.3%'
         }
       });
     }
   }
 
-  document.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function (e) {
+  document.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
       e.preventDefault();
-      var url = e.target.getAttribute("href");
+      var url = e.target.getAttribute('href');
       gsap.fromTo(el, {
         autoAlpha: 0
       }, {

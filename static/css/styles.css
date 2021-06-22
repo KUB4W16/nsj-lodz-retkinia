@@ -31,7 +31,7 @@
 body {
   padding: 0 !important;
   margin: 0 !important;
-  background-color: #FFFFFF !important;
+  background-color: #F3F4EF !important;
   color: #1d1d1d;
 }
 
@@ -42,12 +42,12 @@ hr {
 }
 
 ::-moz-selection {
-  color: #FFFFFF;
+  color: #F3F4EF;
   background: rgba(173, 6, 23, 0.6);
 }
 
 ::selection {
-  color: #FFFFFF;
+  color: #F3F4EF;
   background: rgba(173, 6, 23, 0.6);
 }
 
@@ -132,7 +132,11 @@ hr {
   font-weight: 600;
 }
 
-.article__text__content-wrapper p, .article__text__content-wrapper span, .article__text__content-wrapper b, .article__text__content-wrapper i, .article__text__content-wrapper u {
+.article__text__content-wrapper p,
+.article__text__content-wrapper span,
+.article__text__content-wrapper b,
+.article__text__content-wrapper i,
+.article__text__content-wrapper u {
   font-size: 16px !important;
   line-height: 150%;
 }
@@ -144,7 +148,7 @@ hr {
 }
 
 .article__text__content-wrapper a {
-  color: #AD0617;
+  color: #ad0617;
   font-size: 13px;
   font-weight: 400;
   font-style: italic;
@@ -177,39 +181,45 @@ hr {
   margin: 5px 2.5px;
 }
 
-.article__text__content-wrapper h1, .article__text__content-wrapper h1 * {
+.article__text__content-wrapper h1,
+.article__text__content-wrapper h1 * {
   font-size: 26px;
   font-weight: 600;
 }
 
-.article__text__content-wrapper h2, .article__text__content-wrapper h2 * {
+.article__text__content-wrapper h2,
+.article__text__content-wrapper h2 * {
   font-size: 24px;
   font-weight: 600;
 }
 
-.article__text__content-wrapper h3, .article__text__content-wrapper h3 * {
+.article__text__content-wrapper h3,
+.article__text__content-wrapper h3 * {
   font-size: 22px;
   font-weight: 600;
 }
 
-.article__text__content-wrapper h4, .article__text__content-wrapper h4 * {
+.article__text__content-wrapper h4,
+.article__text__content-wrapper h4 * {
   font-size: 20px;
   font-weight: 600;
 }
 
-.article__text__content-wrapper h5, .article__text__content-wrapper h5 * {
+.article__text__content-wrapper h5,
+.article__text__content-wrapper h5 * {
   font-size: 18px;
   font-weight: 600;
 }
 
-.article__text__content-wrapper h6, .article__text__content-wrapper h6 * {
+.article__text__content-wrapper h6,
+.article__text__content-wrapper h6 * {
   font-size: 16px;
   font-weight: 600;
 }
 
 .article__text__print-button {
   cursor: pointer;
-  color: #AD0617;
+  color: #ad0617;
   font-size: 12px;
   font-style: italic;
   text-decoration: underline;
@@ -240,7 +250,7 @@ hr {
 .article__image__inner__img {
   position: absolute;
   height: 85%;
-  width: calc(85%*23/30);
+  width: calc(85% * 23 / 30);
   overflow: visible;
   background-repeat: no-repeat;
   background-size: cover;
@@ -256,7 +266,7 @@ hr {
 .article__image__inner__shadow {
   content: '';
   height: 85%;
-  width: calc(85%*23/30);
+  width: calc(85% * 23 / 30);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -301,7 +311,7 @@ hr {
 }
 
 .article__search-bar__input {
-  background-color: #FFFFFF;
+  background-color: #F3F4EF;
   outline: none;
   font-family: "HK Grotesk", sans-serif;
   border-width: 0 0 1px;
@@ -326,7 +336,7 @@ hr {
   width: 100px;
   font-family: inherit;
   background-color: #1d1d1d;
-  color: #FFFFFF;
+  color: #F3F4EF;
   border: none;
 }
 
@@ -525,7 +535,7 @@ hr {
       align-self: center;
   font-size: 12px;
   font-weight: 600;
-  color: #AD0617;
+  color: #ad0617;
 }
 
 .menu-trigger__logo {
@@ -546,7 +556,7 @@ hr {
 
 .modal {
   display: none;
-  background-color: #FFFFFF;
+  background-color: #F3F4EF;
   width: 100vw;
   height: 100vh;
   min-height: 600px !important;
@@ -579,7 +589,7 @@ hr {
   border-bottom: 1px solid #1d1d1d;
   font-size: 20px;
   font-weight: 800;
-  color: #AD0617;
+  color: #ad0617;
 }
 
 .modal__counter {
@@ -759,7 +769,7 @@ hr {
 .banner {
   width: 100vw;
   height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #F3F4EF;
   position: absolute;
   display: block;
   top: 0;
@@ -801,7 +811,7 @@ hr {
           transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vh;
-  background-color: #FFFFFF;
+  background-color: #F3F4EF;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -848,7 +858,7 @@ hr {
   font-weight: 600;
   font-family: "HK Grotesk", sans-serif;
   background-color: #1d1d1d;
-  color: #FFFFFF;
+  color: #F3F4EF;
   outline: none;
   border: none;
 }
@@ -901,7 +911,7 @@ noscript {
   z-index: 99999;
   width: 100vw;
   height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #F3F4EF;
   color: #1d1d1d;
   text-align: center;
   font-weight: 800;
@@ -996,7 +1006,7 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #FFFFFF;
+    color: #F3F4EF;
     border: none;
   }
 }
@@ -1044,7 +1054,7 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #FFFFFF;
+    color: #F3F4EF;
     border: none;
   }
 }
@@ -1107,10 +1117,13 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #FFFFFF;
+    color: #F3F4EF;
     border: none;
   }
-  .sidebar, .address, .media, .counter {
+  .sidebar,
+  .address,
+  .media,
+  .counter {
     display: none;
   }
   .menu-trigger {

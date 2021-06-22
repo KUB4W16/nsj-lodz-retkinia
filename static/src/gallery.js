@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
     imageSources.push(link);
   });
   galleryDisplay.src = imageSources[0];
-  imageElements = document
+  var imageElements = document
     .querySelectorAll('.gallery__item')
     .forEach((image) => {
       image.addEventListener('click', () => {

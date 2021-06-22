@@ -34,7 +34,28 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
+<noscript>
+    <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="sidebar__icon">
+    <div>Twoja przeglądarka nie wspiera, lub ma wyłączone wsparcie dla JavaScript'u, bez niego strona nie będzie działać poprawnie.</div>
+    </noscript>
     <div class="banner"></div>
+    <div class="search-banner" id="searchModal">
+        <div class="search-banner__inner">
+            <div class="search-banner__inner__header">Wyszukaj Artykuł</div>
+            <div class="search-banner__inner__short-description">Podaj dane, dzięki którym będziemy mogli znaleźć dany artykuł. <i>(Aby zamknąć to okno, kliknij obok niego, na przyciemnionym polu.)</i></div>
+            <form action="" class="search-banner__inner__form">
+                <input type="date" placeholder="" name="data" id="searchBannerDateInput" class="search-banner__inner__form__date-input">
+                <input type="text" minlength="4" placeholder="Wpisz poszukiwaną frazę." name="fraza" id="searchBannerPhraseInput" class="search-banner__inner__form__phrase-input">
+                <select name="typ" id="searchBannerArticleTypeSelect" class="search-banner__inner__form__limit-input">
+                    <option value="aktualnosci">Aktualności</option>
+                    <option value="ogloszenia">Ogłoszenia parafialne</option>
+                    <option value="inne">Inne</option>
+                </select>
+                <input type="number" placeholder="Podaj limit ilości wyszukiwanych artykułów. Domyślnie 10." name="limit" id="searchBannerLimitInput" class="search-banner__inner__form__article-type-select">
+            </form>
+            <button class="search-banner__inner__search-button">Szukaj</button>
+        </div>
+    </div>
     <div class="grid">
         <div class="menu-trigger" id="menuTrigger">
             <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="menu-trigger__logo">
@@ -97,6 +118,10 @@
                     {% endif %}
                     <div class="gallery" id="galleryWrapper"></div>
                 </article>
+            </div>
+            <div class="article__search-bar">
+                <p>Wyszukaj ogłoszenia klikając na przycisk obok by wprowadzić dane.</p>
+                <button class="article__search-bar__button" id="searchButton">Szukaj</button>
             </div>
         </main>
         <aside class="grid__right sidebar sidebar--right" id="sidebarRight">

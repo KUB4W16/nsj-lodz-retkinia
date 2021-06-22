@@ -1,4 +1,4 @@
-@import url("http://fonts.cdnfonts.com/css/hk-groteks");
+@import url("https://fonts.cdnfonts.com/css/hk-groteks");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -88,14 +88,15 @@ body {
   border: 1px solid #000000;
 }
 
-.text p, .text span {
+.text p,
+.text span {
   font-family: "HK Grotesk", sans-serif !important;
   font-size: 16px;
 }
 
 .text a {
   font-family: "HK Grotesk", sans-serif !important;
-  color: #AD0617;
+  color: #ad0617;
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
@@ -132,32 +133,38 @@ body {
   margin: 5px 2.5px;
 }
 
-.text table h1, .text table h1 * {
+.text table h1,
+.text table h1 * {
   font-size: 26px;
   font-weight: 900 !important;
 }
 
-.text table h2, .text table h2 * {
+.text table h2,
+.text table h2 * {
   font-size: 24px;
   font-weight: 900 !important;
 }
 
-.text table h3, .text table h3 * {
+.text table h3,
+.text table h3 * {
   font-size: 22px;
   font-weight: 900 !important;
 }
 
-.text table h4, .text table h4 * {
+.text table h4,
+.text table h4 * {
   font-size: 20px;
   font-weight: 900 !important;
 }
 
-.text table h5, .text table h5 * {
+.text table h5,
+.text table h5 * {
   font-size: 18px;
   font-weight: 900 !important;
 }
 
-.text table h6, .text table h6 * {
+.text table h6,
+.text table h6 * {
   font-size: 16px;
   font-weight: 900 !important;
 }
