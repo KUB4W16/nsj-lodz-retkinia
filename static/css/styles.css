@@ -31,7 +31,7 @@
 body {
   padding: 0 !important;
   margin: 0 !important;
-  background-color: #F3F4EF !important;
+  background-color: #f3f4ef !important;
   color: #1d1d1d;
 }
 
@@ -42,12 +42,12 @@ hr {
 }
 
 ::-moz-selection {
-  color: #F3F4EF;
+  color: #f3f4ef;
   background: rgba(173, 6, 23, 0.6);
 }
 
 ::selection {
-  color: #F3F4EF;
+  color: #f3f4ef;
   background: rgba(173, 6, 23, 0.6);
 }
 
@@ -311,7 +311,7 @@ hr {
 }
 
 .article__search-bar__input {
-  background-color: #F3F4EF;
+  background-color: #f3f4ef;
   outline: none;
   font-family: "HK Grotesk", sans-serif;
   border-width: 0 0 1px;
@@ -336,7 +336,7 @@ hr {
   width: 100px;
   font-family: inherit;
   background-color: #1d1d1d;
-  color: #F3F4EF;
+  color: #f3f4ef;
   border: none;
 }
 
@@ -556,7 +556,7 @@ hr {
 
 .modal {
   display: none;
-  background-color: #F3F4EF;
+  background-color: #f3f4ef;
   width: 100vw;
   height: 100vh;
   min-height: 600px !important;
@@ -769,7 +769,7 @@ hr {
 .banner {
   width: 100vw;
   height: 100vh;
-  background-color: #F3F4EF;
+  background-color: #f3f4ef;
   position: absolute;
   display: block;
   top: 0;
@@ -811,7 +811,7 @@ hr {
           transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vh;
-  background-color: #F3F4EF;
+  background-color: #f3f4ef;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -858,7 +858,7 @@ hr {
   font-weight: 600;
   font-family: "HK Grotesk", sans-serif;
   background-color: #1d1d1d;
-  color: #F3F4EF;
+  color: #f3f4ef;
   outline: none;
   border: none;
 }
@@ -911,7 +911,7 @@ noscript {
   z-index: 99999;
   width: 100vw;
   height: 100vh;
-  background-color: #F3F4EF;
+  background-color: #f3f4ef;
   color: #1d1d1d;
   text-align: center;
   font-weight: 800;
@@ -1006,7 +1006,7 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #F3F4EF;
+    color: #f3f4ef;
     border: none;
   }
 }
@@ -1054,7 +1054,7 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #F3F4EF;
+    color: #f3f4ef;
     border: none;
   }
 }
@@ -1117,7 +1117,7 @@ noscript > div {
     width: 100px;
     font-family: "HK Grotesk", sans-serif;
     background-color: #1d1d1d;
-    color: #F3F4EF;
+    color: #f3f4ef;
     border: none;
   }
   .sidebar,
