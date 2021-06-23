@@ -45,7 +45,6 @@ $buttonGradient: linear-gradient(
   }
 }
 
-html,
 body {
   padding: 0 !important;
   margin: 0 !important;
@@ -53,6 +52,8 @@ body {
   height: 100vh;
   background-color: $backgroundColor !important;
   background-image: $mainGradient !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: $textColor;
 }
 
