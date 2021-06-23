@@ -26,6 +26,30 @@ basic_routes = {
     "/wspolnoty-parafialne": ["groups", "wspolnoty"]
 }
 
+invalid_search_res = {
+                  "title": "Nie znaleziono.",
+                  "content": {
+                    "html":
+                      "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a lub wyszukaj innej frazy.></p>",
+                  },
+                  "date": datetime.datetime.now().strftime('%d-%m-%Y'),
+                  "image": {
+                    "url": "https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB",
+                  },
+                }
+
+invalid_url_res = {
+        "title": "Coś poszło nie tak.",
+        "content": {
+          "html":
+            "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a></p>",
+        },
+        "date": datetime.datetime.now().strftime('%d-%m-%Y'),
+        "image": {
+          "url": "https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB",
+        },
+      }
+
 placeholder = '<article_type>'
 basic_query = '''
 {
@@ -239,42 +263,28 @@ def search():
                     script.decompose()
                 texts_list = list(_soup.stripped_strings)
 
-                tokenized_text = list(filter(None, [re.sub(r"[^a-zA-Z0-9 ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]", "", p.lower()) for p in " ".join(texts_list).split(" ") if p.lower() not in stopwords]))
-                tokenized_phrases_from_text = []
+            texts_list.append(article['title'])
+            tokenized_text = list(filter(None, [re.sub(r"[^a-zA-Z0-9 ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]", "", p.lower()) for p in " ".join(texts_list).split(" ") if p.lower() not in stopwords]))
+            tokenized_phrases_from_text = []
+            for i in range(tokenized_text.__len__()):
+                tokenized_phrases_from_text += [' '.join(tokenized_text[i:i+tokenized_phrase.__len__()])]
+            
+            _cutoff = 0.8
+            diff = difflib.get_close_matches(phrase, tokenized_phrases_from_text, cutoff=_cutoff)
 
-                for i in range(tokenized_text.__len__()):
-                    # print(' '.join(tokenized_text[i:i+tokenized_phrase.__len__()]))
-                    tokenized_phrases_from_text += [' '.join(tokenized_text[i:i+tokenized_phrase.__len__()])]
-
-                _cutoff = 0.8
-                diff = difflib.get_close_matches(phrase, tokenized_phrases_from_text, cutoff=_cutoff)
-                print(tokenized_phrases_from_text)
-                print(diff)
-                if diff != []:
-                    new_res[article_type].append(article)
-                # elif diff == []:
-                #     new_res[article_type].append('');
+            if diff != []:
+                new_res[article_type].append(article)
+                
     if new_res[article_type] == []:
-        return render_template('index.html', articles=res[article_type], counter=COUNTER, url=request.url, printable=True)
+        new_res[article_type].append(invalid_search_res)
+        return render_template('index.html', articles=new_res[article_type], counter=COUNTER, url=request.url, printable=True)
     else:
         return render_template('index.html', articles=new_res[article_type], counter=COUNTER, url=request.url, printable=True)
 
 @app.errorhandler(Exception)
 def page_not_found(e):
-    articles = [
-      {
-        "title": "Coś poszło nie tak.",
-        "content": {
-          "html":
-            "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a></p>",
-        },
-        "date": datetime.datetime.now().strftime('%d-%m-%Y'),
-        "image": {
-          "url": "https://media.graphcms.com/ge4WdfTQ8Koo8oPxkJlB",
-        },
-      },
-    ];
+    articles = [invalid_url_res];
     return render_template('index.html', articles=articles, counter=COUNTER, url=request.url, printable=False), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run()

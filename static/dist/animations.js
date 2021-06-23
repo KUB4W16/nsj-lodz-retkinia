@@ -5,7 +5,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 window.addEventListener('load', function () {
-  var el = document.querySelector('.banner');
+  var banner = document.querySelector('.banner');
   var image = document.querySelector('.article__image');
   var articles = document.querySelectorAll('#article');
   gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
   }
 
   sleep(250).then(function () {
-    gsap.fromTo(el, {
+    gsap.fromTo(banner, {
       autoAlpha: 1
     }, {
       autoAlpha: 0,
@@ -47,7 +47,7 @@ window.addEventListener('load', function () {
     a.addEventListener('click', function (e) {
       e.preventDefault();
       var url = e.target.getAttribute('href');
-      gsap.fromTo(el, {
+      gsap.fromTo(banner, {
         autoAlpha: 0
       }, {
         autoAlpha: 1,

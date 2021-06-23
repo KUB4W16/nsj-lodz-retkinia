@@ -1,5 +1,9 @@
 "use strict";
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -34,7 +38,7 @@ window.addEventListener('load', function () {
   var articles = document.querySelectorAll('#article');
   var searchButton = document.getElementById('searchButton');
   var searchModal = document.getElementById('searchModal');
-  var searchModalButton = searchModal.querySelector('.search-banner__inner__search-button');
+  var searchModalButton = searchModal.querySelector('.search-modal__inner__search-button');
   var searchModalFields = document.forms[0].elements;
   var articleTypes = {
     '/': 'ogloszenia',
@@ -91,6 +95,12 @@ window.addEventListener('load', function () {
     }
   }
 
+  function sleep(ms) {
+    return new Promise(function (resolve) {
+      return setTimeout(resolve, ms);
+    });
+  }
+
   var elements = document.querySelectorAll('#facebook, #youtube, #niedziela, #caritas, #archidiecezja, #address, #mail');
   var links = {
     niedziela: 'https://niezbednik.niedziela.pl/',
@@ -127,6 +137,7 @@ window.addEventListener('load', function () {
   }
 
   if (searchModalButton) {
+    var banner = document.querySelector('.banner');
     searchModalButton.addEventListener('click', function () {
       var query = "?";
 
@@ -137,8 +148,41 @@ window.addEventListener('load', function () {
       }
 
       query = query.slice(0, -1);
-      console.log(query);
-      location.href = "/szukaj".concat(query);
+      gsap.to(searchModal, {
+        autoAlpha: 0
+      });
+      gsap.fromTo(banner, {
+        autoAlpha: 0
+      }, {
+        autoAlpha: 1,
+        duration: 1,
+        onComplete: function () {
+          var _onComplete = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return sleep(250);
+
+                  case 2:
+                    location.href = "/szukaj".concat(query);
+
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          function onComplete() {
+            return _onComplete.apply(this, arguments);
+          }
+
+          return onComplete;
+        }()
+      });
     });
   }
 

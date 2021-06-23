@@ -2,8 +2,22 @@
 
 $font: 'HK Grotesk', sans-serif;
 $textColor: #1d1d1d;
-$backgroundColor: #f3f4ef;
+$transparentDarkColor: rgba($textColor, 0.6);
+$borderColor: rgba($textColor, 0.3);
+$backgroundColor: #f8e7db;
 $accentColor: #ad0617;
+$mainGradient: linear-gradient(
+  98.49deg,
+  #f3f3eb 0%,
+  #f5e1cf 22.8%,
+  #ffeeeb 100%
+);
+$buttonGradient: linear-gradient(
+  98.32deg,
+  #eddccd 0%,
+  #f4beb2 62.5%,
+  #f2c297 100%
+);
 
 * {
   font-family: $font !important;
@@ -23,11 +37,11 @@ $accentColor: #ad0617;
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba($textColor, 0.1);
-  border-left: 1px solid $textColor;
+  border-left: 1px solid $borderColor;
   &:horizontal {
     height: 10px;
     border-left: 0;
-    border-top: 1px solid $textColor;
+    border-top: 1px solid $borderColor;
   }
 }
 
@@ -35,13 +49,14 @@ body {
   padding: 0 !important;
   margin: 0 !important;
   background-color: $backgroundColor !important;
+  background-image: $mainGradient !important;
   color: $textColor;
 }
 
 hr {
-  border: 0;
-  height: 1px;
-  background: $textColor;
+  border: none;
+  border-top: 1px solid $borderColor;
+  height: 0px;
 }
 
 ::selection {
@@ -76,6 +91,7 @@ hr {
   padding-top: 56.25%;
   position: relative;
   & iframe {
+    border-radius: 5px;
     border: 1px solid $textColor;
     height: 100%;
     left: 0;
@@ -98,7 +114,7 @@ hr {
     grid-row: 1/4;
     padding: 20px;
     overflow: auto;
-    border-right: 1px solid $textColor;
+    border-right: 1px solid $borderColor;
     &__header {
       font-size: 26px;
       font-weight: 600;
@@ -109,11 +125,11 @@ hr {
       b,
       i,
       u {
-        // color: $textColor;
         font-size: 16px !important;
         line-height: 150%;
       }
       & img {
+        border-radius: 5px;
         width: 80%;
         height: auto;
         border: 1px solid $textColor;
@@ -130,12 +146,12 @@ hr {
       }
       table {
         width: 100%;
-        border-top: 1px solid $textColor;
-        border-bottom: 1px solid $textColor;
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
       }
 
       table td + td {
-        border-left: 1px solid $textColor;
+        border-left: 1px solid $borderColor;
       }
 
       ol,
@@ -144,7 +160,7 @@ hr {
         padding-left: 20px;
       }
       blockquote {
-        border-left: 1px solid rgba($textColor, 0.3);
+        border-left: 1px solid $borderColor;
         padding-left: 7.5px;
         margin: 5px 2.5px;
       }
@@ -202,6 +218,7 @@ hr {
       width: 100%;
       height: 100%;
       opacity: 0;
+      will-change: opacity;
       &__img {
         position: absolute;
         height: 85%;
@@ -218,6 +235,7 @@ hr {
       }
       &__shadow {
         content: '';
+        opacity: 0.75;
         height: 85%;
         width: calc(85% * 23 / 30);
         background-repeat: no-repeat;
@@ -231,14 +249,14 @@ hr {
         margin-right: 50%;
         transform: translate(-50%, 15%);
         filter: blur(45px);
+        backdrop-filter: blur(45px);
       }
     }
   }
   &__search-bar {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid $textColor;
-    font-size: 12px;
+    border-top: 1px solid $borderColor;
     font-weight: 500;
     height: 50px;
     padding-left: 5px;
@@ -246,34 +264,10 @@ hr {
     grid-row: 3;
     & p {
       align-self: center;
-    }
-    &__label {
-      font-size: 12px !important;
-    }
-    &__input {
-      background-color: $backgroundColor;
-      outline: none;
-      font-family: $font;
-      border-width: 0 0 1px;
-      border-color: $textColor;
-      &::-webkit-clear-button {
-        font-size: 18px;
-        height: 30px;
-        position: relative;
-      }
-      &::-webkit-inner-spin-button {
-        height: 28px;
-      }
-      &::-webkit-calendar-picker-indicator {
-        font-size: 13px;
-      }
+      font-size: 13px !important;
     }
     &__button {
-      width: 100px;
-      font-family: inherit;
-      background-color: $textColor;
-      color: $backgroundColor;
-      border: none;
+      width: 130px;
     }
   }
 }
@@ -293,7 +287,7 @@ hr {
     user-select: none;
     align-self: center;
     display: block;
-    padding-left: 10px;
+    padding-left: 7px;
     &__item {
       //  font-size: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
       font-size: 13px;
@@ -338,7 +332,7 @@ hr {
     & .nd_liturgia_skrot_baner img {
       pointer-events: none;
       margin-top: 5px;
-      border: 1px solid $textColor !important;
+      border: 1px solid $borderColor !important;
       border-radius: 5px;
     }
   }
@@ -350,9 +344,9 @@ hr {
   align-items: center;
   grid-column: 1;
   grid-row: 2;
-  border-top: 1px solid $textColor;
-  border-right: 1px solid $textColor;
-  padding-left: 10px;
+  border-top: 1px solid $borderColor;
+  border-right: 1px solid $borderColor;
+  padding-left: 7px;
   &__header {
     font-size: 12px;
     margin: 0;
@@ -368,11 +362,14 @@ hr {
   align-items: center;
   grid-column: 1;
   grid-row: 3;
-  border-top: 1px solid $textColor;
-  border-right: 1px solid $textColor;
+  border-top: 1px solid $borderColor;
+  border-right: 1px solid $borderColor;
+  & a {
+    text-decoration: none;
+  }
   &__svg {
     user-select: none;
-    margin-left: 10px;
+    margin-left: 7px;
     cursor: pointer;
   }
 }
@@ -384,8 +381,8 @@ hr {
   font-weight: 600;
   grid-column: 3;
   grid-row: 3;
-  border-top: 1px solid $textColor;
-  border-left: 1px solid $textColor;
+  border-top: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
   padding-left: 5px;
 }
 
@@ -402,7 +399,7 @@ hr {
   justify-content: center;
   grid-row: 1/4;
   grid-column: 1;
-  border-right: 1px solid $textColor;
+  border-right: 1px solid $borderColor;
   &__text {
     align-self: center;
     font-size: 12px;
@@ -418,15 +415,16 @@ hr {
 }
 
 .sidebar--left {
-  border-right: 1px solid $textColor;
+  border-right: 1px solid $borderColor;
 }
 .sidebar--right {
-  border-left: 1px solid $textColor;
+  border-left: 1px solid $borderColor;
 }
 
 .modal {
   display: none;
   background-color: $backgroundColor;
+  background-image: $mainGradient;
   width: 100vw;
   height: 100vh;
   min-height: 600px !important;
@@ -437,6 +435,7 @@ hr {
   top: 0;
   left: 0;
   z-index: 1;
+  will-change: opacity;
   &__close-button {
     grid-column: 2;
     grid-row: 1;
@@ -444,7 +443,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid $textColor;
+    border-bottom: 1px solid $borderColor;
     font-size: 20px;
     font-weight: 800;
     color: $accentColor;
@@ -455,8 +454,9 @@ hr {
     align-items: center;
     grid-column: 1;
     grid-row: 3;
-    border-top: 1px solid $textColor;
-    border-right: 1px solid $textColor;
+    border-top: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
+    padding-left: 5px;
   }
   &__address {
     z-index: 2;
@@ -464,7 +464,7 @@ hr {
     align-items: center;
     font-size: 10px;
     font-weight: 600;
-    border-top: 1px solid $textColor;
+    border-top: 1px solid $borderColor;
     grid-column: 2;
     grid-row: 3;
   }
@@ -474,8 +474,8 @@ hr {
     align-items: center;
     grid-column: 1;
     grid-row: 3;
-    border-top: 1px solid $textColor;
-    border-right: 1px solid $textColor;
+    border-top: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
   }
   &__side-menu {
     width: 100%;
@@ -490,7 +490,7 @@ hr {
       &:last-child {
         margin-bottom: -1px;
       }
-      border-bottom: 1px solid $textColor;
+      border-bottom: 1px solid $borderColor;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -515,7 +515,7 @@ hr {
     &--left {
       grid-column: 1;
       grid-row: 1/3;
-      border-right: 1px solid $textColor;
+      border-right: 1px solid $borderColor;
     }
   }
 }
@@ -530,7 +530,7 @@ hr {
     height: 100%;
     cursor: pointer;
     & img {
-      border: 1px solid $textColor;
+      border: 1px solid $borderColor;
       display: flex;
       justify-content: center;
       width: inherit;
@@ -542,7 +542,7 @@ hr {
 .image-viewer {
   width: 100%;
   height: 100%;
-  background-color: $textColor;
+  background-color: $borderColor;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,6 +558,7 @@ hr {
   width: 100vw;
   height: 100vh;
   background-color: $backgroundColor;
+  background-image: $mainGradient;
   position: absolute;
   display: block;
   top: 0;
@@ -565,6 +566,7 @@ hr {
   pointer-events: none;
   opacity: 1;
   z-index: 9999;
+  will-change: opacity;
 }
 
 .active-image {
@@ -576,7 +578,7 @@ hr {
   }
 }
 
-.search-banner {
+.search-modal {
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -585,10 +587,11 @@ hr {
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background-color: rgba($textColor, 0.6);
+  background-color: $transparentDarkColor;
   &__inner {
     padding: 10px;
-    border: 2px solid $textColor;
+    border-radius: 5px;
+    border: 1px solid $textColor;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -597,6 +600,7 @@ hr {
     width: 50vw;
     height: 50vh;
     background-color: $backgroundColor;
+    background-image: $mainGradient;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 40px 50px 1fr 50px;
@@ -608,6 +612,12 @@ hr {
       font-weight: 900;
       font-family: $font;
     }
+    &__input {
+      background-color: transparent;
+      color: $textColor;
+      border-radius: 5px;
+      border: 1px solid $borderColor;
+    }
     &__short-description {
       align-self: center;
       grid-column: 1;
@@ -617,18 +627,10 @@ hr {
       font-family: $font;
     }
     &__search-button {
+      width: 35%;
       display: inline-block;
-      text-align: center;
       grid-column: 1;
       grid-row: 4;
-      font-size: 18px;
-      line-height: 50px;
-      font-weight: 600;
-      font-family: $font;
-      background-color: $textColor;
-      color: $backgroundColor;
-      outline: none;
-      border: none;
     }
     &__form {
       grid-column: 1;
@@ -655,6 +657,44 @@ hr {
         grid-row: 2;
       }
     }
+  }
+}
+
+.button {
+  margin: 5px;
+  height: 40px;
+  cursor: pointer;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: transparent;
+  color: $transparentDarkColor;
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+  transition: border-color 0.3s, color 0.3s;
+  text-align: center;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-image: $buttonGradient;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+  }
+  &:hover {
+    border-color: $textColor;
+  }
+  &:active {
+    color: $textColor;
+  }
+  &:active:before {
+    opacity: 1;
   }
 }
 
@@ -707,7 +747,7 @@ noscript {
     &__text {
       border-right: 0;
       overflow: visible;
-      border-top: 1px solid $textColor;
+      border-top: 1px solid $borderColor;
       grid-column: 1/3;
       grid-row: 2;
       padding: 20px;
@@ -719,21 +759,9 @@ noscript {
     &__search-bar {
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid $textColor;
-      font-size: 12px;
+      border-top: 1px solid $borderColor;
       font-weight: 600;
       grid-column: 1/3;
-      & p {
-        align-self: center;
-      }
-      &__button {
-        cursor: pointer;
-        width: 100px;
-        font-family: $font;
-        background-color: $textColor;
-        color: $backgroundColor;
-        border: none;
-      }
     }
   }
 }
@@ -746,7 +774,7 @@ noscript {
     &__text {
       border-right: 0;
       overflow: visible;
-      border-top: 1px solid $textColor;
+      border-top: 1px solid $borderColor;
       grid-column: 1;
       grid-row: 2;
       padding: 20px;
@@ -758,18 +786,11 @@ noscript {
     &__search-bar {
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid $textColor;
+      border-top: 1px solid $borderColor;
       font-size: 12px;
       font-weight: 600;
       grid-column: 1;
       grid-row: 4;
-      &__button {
-        width: 100px;
-        font-family: $font;
-        background-color: $textColor;
-        color: $backgroundColor;
-        border: none;
-      }
     }
   }
 }
@@ -790,7 +811,7 @@ noscript {
     &__text {
       border-right: 0;
       overflow: visible;
-      border-top: 1px solid $textColor;
+      border-top: 1px solid $borderColor;
       grid-column: 1/3;
       grid-row: 2;
       padding: 20px;
@@ -802,18 +823,11 @@ noscript {
     &__search-bar {
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid $textColor;
+      border-top: 1px solid $borderColor;
       font-size: 12px;
       font-weight: 600;
       grid-column: 1/3;
       grid-row: 4;
-      &__button {
-        width: 100px;
-        font-family: $font;
-        background-color: $textColor;
-        color: $backgroundColor;
-        border: none;
-      }
     }
   }
   .sidebar,

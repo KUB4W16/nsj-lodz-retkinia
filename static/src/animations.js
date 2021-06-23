@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  const el = document.querySelector('.banner');
+  const banner = document.querySelector('.banner');
   const image = document.querySelector('.article__image');
   const articles = document.querySelectorAll('#article');
   gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 
   sleep(250).then(() => {
     gsap.fromTo(
-      el,
+      banner,
       { autoAlpha: 1 },
       {
         autoAlpha: 0,
@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
       e.preventDefault();
       var url = e.target.getAttribute('href');
       gsap.fromTo(
-        el,
+        banner,
         { autoAlpha: 0 },
         {
           autoAlpha: 1,

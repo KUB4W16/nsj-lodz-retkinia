@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
   const searchButton = document.getElementById('searchButton');
   const searchModal = document.getElementById('searchModal');
   const searchModalButton = searchModal.querySelector(
-    '.search-banner__inner__search-button'
+    '.search-modal__inner__search-button'
   );
   const searchModalFields = document.forms[0].elements;
 
@@ -66,6 +66,9 @@ window.addEventListener('load', () => {
       grid.append(node);
     }
   }
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   const elements = document.querySelectorAll(
     '#facebook, #youtube, #niedziela, #caritas, #archidiecezja, #address, #mail'
@@ -104,6 +107,7 @@ window.addEventListener('load', () => {
   }
 
   if (searchModalButton) {
+    const banner = document.querySelector('.banner');
     searchModalButton.addEventListener('click', () => {
       var query = `?`;
       for (var i = 0; i < searchModalFields.length; i++) {
@@ -112,8 +116,19 @@ window.addEventListener('load', () => {
         }
       }
       query = query.slice(0, -1);
-      console.log(query);
-      location.href = `/szukaj${query}`;
+      gsap.to(searchModal, { autoAlpha: 0 });
+      gsap.fromTo(
+        banner,
+        { autoAlpha: 0 },
+        {
+          autoAlpha: 1,
+          duration: 1,
+          onComplete: async () => {
+            await sleep(250);
+            location.href = `/szukaj${query}`;
+          },
+        }
+      );
     });
   }
 
