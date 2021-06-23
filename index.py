@@ -274,10 +274,11 @@ def search():
 
             if diff != []:
                 new_res[article_type].append(article)
-                
-    if new_res[article_type] == []:
+    if new_res[article_type] == [] and phrase is not None:
         new_res[article_type].append(invalid_search_res)
         return render_template('index.html', articles=new_res[article_type], counter=COUNTER, url=request.url, printable=True)
+    elif new_res[article_type] == []:
+        return render_template('index.html', articles=res[article_type], counter=COUNTER, url=request.url, printable=True)
     else:
         return render_template('index.html', articles=new_res[article_type], counter=COUNTER, url=request.url, printable=True)
 
