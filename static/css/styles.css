@@ -28,9 +28,12 @@
   border-top: 1px solid rgba(29, 29, 29, 0.3);
 }
 
+html,
 body {
   padding: 0 !important;
   margin: 0 !important;
+  width: 100vw;
+  height: 100vh;
   background-color: #f8e7db !important;
   background-image: linear-gradient(98.49deg, #f3f3eb 0%, #f5e1cf 22.8%, #ffeeeb 100%) !important;
   color: #1d1d1d;
@@ -826,6 +829,7 @@ hr {
   color: #1d1d1d;
   border-radius: 5px;
   border: 1px solid rgba(29, 29, 29, 0.3);
+  width: 100%;
 }
 
 .search-modal__inner__short-description {
@@ -1132,7 +1136,7 @@ noscript > div {
   .menu-trigger {
     visibility: visible;
   }
-  .search-banner__inner {
+  .search-modal__inner {
     top: auto;
     bottom: 0;
     -webkit-transform: translate(-50%, 0);

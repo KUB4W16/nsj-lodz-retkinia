@@ -45,9 +45,12 @@ $buttonGradient: linear-gradient(
   }
 }
 
+html,
 body {
   padding: 0 !important;
   margin: 0 !important;
+  width: 100vw;
+  height: 100vh;
   background-color: $backgroundColor !important;
   background-image: $mainGradient !important;
   color: $textColor;
@@ -617,6 +620,7 @@ hr {
       color: $textColor;
       border-radius: 5px;
       border: 1px solid $borderColor;
+      width: 100%;
     }
     &__short-description {
       align-self: center;
@@ -839,7 +843,7 @@ noscript {
   .menu-trigger {
     visibility: visible;
   }
-  .search-banner__inner {
+  .search-modal__inner {
     top: auto;
     bottom: 0;
     transform: translate(-50%, 0);
