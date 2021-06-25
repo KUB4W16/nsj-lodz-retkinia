@@ -34,7 +34,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #f8e7db !important;
-  background-image: linear-gradient(98.49deg, #f3f3eb 0%, #f5e1cf 22.8%, #ffeeeb 100%) !important;
+  background-image: linear-gradient(98.49deg, #F3F4EF 0%, #EDDCCD 22.8%, #FFEEEB 100%) !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #1d1d1d;
@@ -289,8 +289,6 @@ hr {
           transform: translate(-50%, 15%);
   -webkit-filter: blur(45px);
           filter: blur(45px);
-  -webkit-backdrop-filter: blur(45px);
-          backdrop-filter: blur(45px);
 }
 
 .article__search-bar {
@@ -340,6 +338,10 @@ hr {
   margin-right: auto;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .sidebar__navigation {
@@ -542,7 +544,7 @@ hr {
 .modal {
   display: none;
   background-color: #f8e7db;
-  background-image: linear-gradient(98.49deg, #f3f3eb 0%, #f5e1cf 22.8%, #ffeeeb 100%);
+  background-image: linear-gradient(98.49deg, #F3F4EF 0%, #EDDCCD 22.8%, #FFEEEB 100%);
   width: 100vw;
   height: 100vh;
   min-height: 600px !important;
@@ -735,7 +737,8 @@ hr {
 .image-viewer {
   width: 100%;
   height: 100%;
-  background-color: rgba(29, 29, 29, 0.3);
+  background-color: #f8e7db;
+  background-image: linear-gradient(98.32deg, #eddccd 0%, #f4beb2 62.5%, #f2c297 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -745,6 +748,7 @@ hr {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-bottom: 1px solid rgba(29, 29, 29, 0.3);
 }
 
 .image-viewer__display {
@@ -758,7 +762,7 @@ hr {
   width: 100vw;
   height: 100vh;
   background-color: #f8e7db;
-  background-image: linear-gradient(98.49deg, #f3f3eb 0%, #f5e1cf 22.8%, #ffeeeb 100%);
+  background-image: linear-gradient(98.49deg, #F3F4EF 0%, #EDDCCD 22.8%, #FFEEEB 100%);
   position: absolute;
   display: block;
   top: 0;
@@ -791,7 +795,7 @@ hr {
 }
 
 .search-modal__inner {
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   border: 1px solid #1d1d1d;
   position: absolute;
@@ -803,7 +807,7 @@ hr {
   width: 50vw;
   height: 50vh;
   background-color: #f8e7db;
-  background-image: linear-gradient(98.49deg, #f3f3eb 0%, #f5e1cf 22.8%, #ffeeeb 100%);
+  background-image: linear-gradient(98.49deg, #F3F4EF 0%, #EDDCCD 22.8%, #FFEEEB 100%);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -831,6 +835,14 @@ hr {
   border-radius: 5px;
   border: 1px solid rgba(29, 29, 29, 0.3);
   width: 100%;
+  height: 45px;
+}
+
+.search-modal__inner__input__label {
+  font-size: 13px;
+  font-weight: 500;
+  padding-bottom: 25px;
+  color: rgba(29, 29, 29, 0.6);
 }
 
 .search-modal__inner__short-description {
@@ -865,9 +877,9 @@ hr {
   height: 100%;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 50px 50px 1fr;
-      grid-template-rows: 1fr 50px 50px 1fr;
-  grid-gap: 5px;
+  -ms-grid-rows: 1fr 75px 75px 1fr;
+      grid-template-rows: 1fr 75px 75px 1fr;
+  grid-gap: 15px 10px;
 }
 
 .search-modal__inner__form__date-input {
