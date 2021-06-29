@@ -1,8 +1,7 @@
 from flask import Flask, render_template, Response, request
 from graphqlclient import GraphQLClient
 from bs4 import BeautifulSoup
-import json, datetime, os, requests, re
-import difflib
+import json, datetime, os, requests, re, difflib 
 
 app = Flask(__name__);
 app.static_folder = 'static'
@@ -27,7 +26,7 @@ basic_routes = {
 }
 
 invalid_search_res = {
-                  "title": "Nie znaleziono.",
+                  "title": "Nie znaleziono danej frazy.",
                   "content": {
                     "html":
                       "<p>Strona, której szukasz nie została znaleziona. <a class='link' href='/'>Wróć do strony głównej</a lub wyszukaj innej frazy.></p>",
