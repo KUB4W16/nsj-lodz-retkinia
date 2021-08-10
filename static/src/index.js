@@ -182,19 +182,8 @@ window.addEventListener('load', () => {
     image.innerHTML += `<div 
             class="article__image__inner">
             <div class="article__image__inner__img" style="background-image: url(${article.dataset.image});"></div>
-            <div class="article__image__inner__shadow" style="background-image: url(${article.dataset.image});"></div>
         </div>`;
   });
-
-  var ua = window.navigator.userAgent;
-  var isIE = /MSIE|Trident/.test(ua);
-  if (isIE) {
-    document
-      .querySelectorAll('.article__image__inner__shadow')
-      .forEach((shdw) => {
-        shdw.parentNode.removeChild(shdw);
-      });
-  }
 
   menuTrigger.addEventListener('click', () => {
     showModal();

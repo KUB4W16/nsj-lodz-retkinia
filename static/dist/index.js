@@ -226,17 +226,8 @@ window.addEventListener('load', function () {
     });
   });
   articles.forEach(function (article, i) {
-    image.innerHTML += "<div \n            class=\"article__image__inner\">\n            <div class=\"article__image__inner__img\" style=\"background-image: url(".concat(article.dataset.image, ");\"></div>\n            <div class=\"article__image__inner__shadow\" style=\"background-image: url(").concat(article.dataset.image, ");\"></div>\n        </div>");
+    image.innerHTML += "<div \n            class=\"article__image__inner\">\n            <div class=\"article__image__inner__img\" style=\"background-image: url(".concat(article.dataset.image, ");\"></div>\n        </div>");
   });
-  var ua = window.navigator.userAgent;
-  var isIE = /MSIE|Trident/.test(ua);
-
-  if (isIE) {
-    document.querySelectorAll('.article__image__inner__shadow').forEach(function (shdw) {
-      shdw.parentNode.removeChild(shdw);
-    });
-  }
-
   menuTrigger.addEventListener('click', function () {
     showModal();
   });
